@@ -22,8 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration.server = "http://45.79.67.127:1337/parse"
         }))
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "NavigationController")
+        if PFUser.current() != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "NavigationController")
+        }
         
         return true
     }
